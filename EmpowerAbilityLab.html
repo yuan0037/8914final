@@ -11,8 +11,9 @@
       content="Foster understanding and promote inclusive digital experiences for all"
     />
     <meta name="author" content="" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Bootstrap js -->
-    <script
+    <!-- <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"
@@ -26,7 +27,7 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <!-- Bootstrap core CSS -->
     <link
       href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css"
@@ -86,9 +87,9 @@
             class="nav-link active"
             id="v-pills-home-tab"
             data-toggle="pill"
-            href="#home"
+            href="#v-pills-home-panel"
             role="tab"
-            aria-controls="v-pills-home"
+            aria-controls="v-pills-home-panel"
             aria-selected="true"
             >Home</a
           >
@@ -96,9 +97,9 @@
             class="nav-link"
             id="v-pills-service-tab"
             data-toggle="pill"
-            href="#service"
+            href="#v-pills-service-panel"
             role="tab"
-            aria-controls="v-pills-service"
+            aria-controls="v-pills-service-panel"
             aria-selected="false"
             >Service</a
           >
@@ -106,9 +107,9 @@
             class="nav-link"
             id="v-pills-schedule-tab"
             data-toggle="pill"
-            href="#schedule"
+            href="#v-pills-schedule-panel"
             role="tab"
-            aria-controls="v-pills-schedule"
+            aria-controls="v-pills-schedule-panel"
             aria-selected="false"
             >Schedule a Call</a
           >
@@ -117,7 +118,7 @@
       <div class="tab-content" id="v-pills-tabContent">
         <div
           class="tab-pane fade show active"
-          id="home"
+          id="v-pills-home-panel"
           role="tabpanel"
           aria-labelledby="v-pills-home-tab"
         >
@@ -180,7 +181,7 @@
         </div>
         <div
           class="tab-pane fade"
-          id="service"
+          id="v-pills-service-panel"
           role="tabpanel"
           aria-labelledby="v-pills-service-tab"
         >
@@ -191,7 +192,7 @@
         </div>
         <div
           class="tab-pane fade"
-          id="schedule"
+          id="v-pills-schedule-panel"
           role="tabpanel"
           aria-labelledby="v-pills-schedule-tab"
         >
@@ -210,6 +211,12 @@
     </footer>
 
     <script src="EmpowerAbilityLab.js"></script>
-    <script src="bootstrap-history-tabs.js" charset="utf-8"></script>
+    <!-- <script src="bootstrap-history-tabs.js" charset="utf-8"></script> -->
+    <!-- <script>
+      $(function () {
+        // Activate the history tabs.
+        $('a[data-toggle="pill"]').historyTabs();
+      });
+    </script> -->
   </body>
 </html>
