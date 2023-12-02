@@ -61,6 +61,14 @@ closeButtonInFooter.addEventListener('click', function() {
 	toggleModal(false);
 });
 
+// listen to esc key to close popup
+document.addEventListener('keydown', function(event) {
+	// Check if the pressed key is the "Escape" key (key code 27)
+	if (event.key === 'Escape' || event.keyCode === 27) {
+		toggleModal(false);
+	}
+});
+
 // function to open/close modal
 function toggleModal(isOpen) {
 	var modal = document.getElementById('communityModal');	
