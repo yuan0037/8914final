@@ -1,7 +1,7 @@
 //Template Function that can be used to run JavaScript on the page
 //Note: This can be changed to whatever JavaScript formatting you would like
 
-
+// trap focus when modal dialog is visible
 const trapFocus = (element, prevFocusableElement = document.activeElement) => {
     const focusableEls = Array.from(
       element.querySelectorAll(
@@ -45,24 +45,23 @@ const trapFocus = (element, prevFocusableElement = document.activeElement) => {
     };
   };
 
-
+// button to open modal
 var toggleButton = document.getElementById('communityBtn');
-       
-// Add a click event listener to the button
 toggleButton.addEventListener('click', function() {
 	toggleModal(true);
 });
 
+// button to close modal
 var closeButton = document.querySelector('.close[data-dismiss="modal"]');
 closeButton.addEventListener('click', function() {
 	toggleModal(false);
 });
-
 var closeButtonInFooter = document.querySelector('.modal-footer button.btn-primary');
 closeButtonInFooter.addEventListener('click', function() {
 	toggleModal(false);
 });
 
+// function to open/close modal
 function toggleModal(isOpen) {
 	var modal = document.getElementById('communityModal');	
 	if (isOpen) {
@@ -76,6 +75,7 @@ function toggleModal(isOpen) {
 	}
 }
 
+// handle tab switching
 
 let tabBtns = [];
 let tabPanels = {};
@@ -114,10 +114,12 @@ function applyTab(id) {
   }
 }
 
+// select tab by widget
 function selectTab(e) {
   applyTab(e.target.id);
 }
 
+// handle history stack
 function historyTabs(selector) {
   var elements = document.querySelectorAll(selector);
   window.addEventListener("popstate", function (event) {
@@ -174,5 +176,5 @@ function historyTabs(selector) {
   }
 }
 
-// Usage
+//apply history stack
 historyTabs('a[data-toggle="pill"]');
