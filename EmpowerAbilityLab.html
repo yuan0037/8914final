@@ -11,25 +11,11 @@
       content="Foster understanding and promote inclusive digital experiences for all"
     />
     <meta name="author" content="" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link
-      href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Custom styles for Empower Ability Labs -->
-    <link rel="stylesheet" href="EmpowerAbilityLab.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="EmpowerAbilityLab.css"> 
     <title>Empower Ability Labs</title>
   </head>
 
@@ -117,6 +103,37 @@
                 answers on How do people with disabilities use technology and
                 navigate the digital world? What tools do they employ?
               </p>
+              <!-- Button trigger modal -->
+              <button type="button" id="communityBtn" class="btn btn-primary" >
+                Meet the Empower Community! 
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="communityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Community Steering Committee</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      We get an aha! moments from product managers who try our services for the first time. We offered many lab days, workshops and offered usability testing services to many companies and organizations including:
+                      <ul>
+                        <li>McGill University</li>
+                        <li>Walmart.ca</li>
+                        <li>Apple.ca</li>
+                        <li>Google.ca</li>
+                        <li>Government of Canada</li>
+                      </ul>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

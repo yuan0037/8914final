@@ -1,5 +1,35 @@
 //Template Function that can be used to run JavaScript on the page
 //Note: This can be changed to whatever JavaScript formatting you would like
+
+var toggleButton = document.getElementById('communityBtn');
+       
+// Add a click event listener to the button
+toggleButton.addEventListener('click', function() {
+	toggleModal(true);
+});
+
+var closeButton = document.querySelector('.close[data-dismiss="modal"]');
+closeButton.addEventListener('click', function() {
+	toggleModal(false);
+});
+
+var closeButtonInFooter = document.querySelector('.modal-footer button.btn-primary');
+closeButtonInFooter.addEventListener('click', function() {
+	toggleModal(false);
+});
+
+function toggleModal(isOpen) {
+	var modal = document.getElementById('communityModal');	
+	if (isOpen) {
+		modal.classList.add("show");
+		modal.style.display = "block";
+	} else {	
+		modal.classList.remove("show");
+		modal.style.display = "none";
+	}
+}
+
+
 let tabBtns = [];
 let tabPanels = {};
 let documenTitles = ["Home", "Service", "Schedule a Service"];
