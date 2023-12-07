@@ -8,3 +8,26 @@
     width: 10%;
     height: 10%;
 }
+textarea {
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 20%;
+    height: 60px;
+  }
+.schedule-call-button {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+.schedule-call-button:hover {
+    background-color: #eee;
+  }
+  
+.schedule-call-button:active {
+    background-color: #ccc;
+  }

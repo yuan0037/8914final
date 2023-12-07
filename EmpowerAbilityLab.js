@@ -120,6 +120,7 @@ function applyTab(id) {
       tabBtns[i].classList.remove("active");
     }
   }
+  hideToggleMenu();
 }
 
 // select tab by widget
@@ -184,5 +185,118 @@ function historyTabs(selector) {
   }
 }
 
+// Get the button and message elements
+const button = document.getElementById('schedule-call-button');
+const thankYouMessage = document.getElementById('thank-you-message');
+const errorMessage = document.getElementById('error-message');
+
+// Add a click event listener to the button
+button.addEventListener('click', function() {
+  // Make an AJAX request to schedule the call
+  // If the request is successful, show the thank you message
+  // If the request fails, show the error message
+});
+
+
 //apply history stack
 historyTabs('a[data-toggle="pill"]');
+
+//hide text area
+var textarea = document.getElementById('event_description_area');
+textarea.style.display = 'none';
+
+function validateForm() {
+  var emailInput = document.getElementById('email');
+  var phoneInput = document.getElementById('phone_number');
+  var errors = [];
+
+  // Email validation
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailInput.value)) {
+    errors.push('Invalid email address');
+  }
+
+  // Phone number validation
+  var phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+  if (!phoneRegex.test(phoneInput.value)) {
+    errors.push('Invalid phone number. Please use the format 000-000-0000');
+  }
+
+  // Display errors if any
+  if (errors.length > 0) {
+    showErrors(errors);
+    return;
+  } else {
+    showThanks();
+  }
+
+  // If both validations pass, you can submit the form or perform other actions
+  
+  // Uncomment the line below to submit the form
+  // document.getElementById('myForm').submit();
+}
+
+function showErrors(errors) {
+  var errorsContainer = document.getElementById('statusContainer');
+  errorsContainer.classList.remove(...errorsContainer.classList);
+  errorsContainer.classList.add('alert');
+  errorsContainer.setAttribute('role', 'alert');
+  errorsContainer.classList.add('alert-danger');
+  errorsContainer.innerHTML = '<fieldset><legend>Errors</legend><ul>' + errors.map(error => '<li tabindex="0">' + error + '</li>').join('') + '</ul></fieldset>';
+}
+
+function showThanks() {
+  var successContainer = document.getElementById('statusContainer');
+  successContainer.classList.remove(...successContainer.classList);
+  successContainer.classList.add('alert');
+  successContainer.setAttribute('role', 'alert');
+  successContainer.classList.add('alert-success');
+  successContainer.innerHTML = '<fieldset><legend>Success</legend><ul><li>Thank you!</li></ul></fieldset>';
+  document.getElementById('scheduleacall').reset();
+  var textarea = document.getElementById('event_description_area');
+  textarea.style.display = 'none';
+}
+
+function toggleTextarea(event) {
+  var checkbox = event.target;
+  var textarea = document.getElementById('event_description_area');
+
+  if (checkbox.checked) {
+    textarea.style.display = 'block';
+  } else {
+    textarea.style.display = 'none';
+  }
+}
+
+function toggleImage(event) {
+  var buttonCheck = document.getElementById('switcher');
+  var ariaCheckedValue = buttonCheck.getAttribute('aria-checked');
+  var switchImage = document.getElementById('switchImage');
+  if (ariaCheckedValue === "false") {
+    switchImage.src = './images/switch_yes.jpg';
+    buttonCheck.setAttribute('aria-checked', "true");
+  } else {
+    switchImage.src = './images/switch_no.jpg';
+    buttonCheck.setAttribute('aria-checked', "false");
+  }
+}
+
+function toggleNav(event) {
+  var navToggleBtn = document.getElementById('nav-toggle-btn');
+  var fullMenu = document.getElementById('v-pills-tab');
+
+  if (navToggleBtn.getAttribute('aria-expanded') === 'false') {
+    fullMenu.classList.add('show');
+    navToggleBtn.setAttribute('aria-expanded','true');
+  } else {
+    fullMenu.classList.remove('show');
+    navToggleBtn.setAttribute('aria-expanded','false');
+  }
+}
+
+function hideToggleMenu() {
+  var navToggleBtn = document.getElementById('nav-toggle-btn');
+  var fullMenu = document.getElementById('v-pills-tab');
+  fullMenu.classList.remove('show');
+  navToggleBtn.setAttribute('aria-expanded','false');
+}

@@ -20,70 +20,67 @@
   </head>
 
   <body>
-    <!-- <div  class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> -->
-    <!-- Main Navigation for Empower Ability Labs-->
-    <!-- <nav> 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-
-      </div>
-    </nav> -->
+   
     <div class="wrapper">
       <nav
-        id="topbar"
-        class="navbar navbar-expand-lg navbar-light bg-light navbar-expand-md fixed-top"
+      id="topbar"
+      class="navbar navbar-expand-lg navbar-light bg-light navbar-expand-md fixed-top"
+    >
+      <a class="navbar-brand" href="https://www.google.ca/"
+        ><img src="./images/logo.png" width="170" size="50"></a
       >
-        <a class="navbar-brand" href="https://www.google.ca/"
-          ><img src="./images/logo.png" width="170" size="50"></a
+      <button
+        id="nav-toggle-btn"
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#v-pills-tab"
+        aria-controls="v-pills-tab"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        onclick="toggleNav()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div          
+        class="collapse navbar-collapse nav-pills"
+        id="v-pills-tab"
+        role="tablist"
+        aria-orientation="horizontal"
+      ><div class="navbar-nav">
+        <a
+          class="nav-link active"
+          id="v-pills-home-tab"
+          data-toggle="pill"
+          href="#v-pills-home-panel"
+          role="tab"
+          aria-controls="v-pills-home-panel"
+          aria-selected="true"
+          >Home</a
         >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+        <a
+          class="nav-link"
+          id="v-pills-service-tab"
+          data-toggle="pill"
+          href="#v-pills-service-panel"
+          role="tab"
+          aria-controls="v-pills-service-panel"
+          aria-selected="false"
+          >Service</a
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="navbar-nav nav-pills"
-          id="v-pills-tab"
-          role="tablist"
-          aria-orientation="horizontal"
+        <a
+          class="nav-link"
+          id="v-pills-schedule-tab"
+          data-toggle="pill"
+          href="#v-pills-schedule-panel"
+          role="tab"
+          aria-controls="v-pills-schedule-panel"
+          aria-selected="false"
+          >Schedule a Call</a
         >
-          <a
-            class="nav-link active"
-            id="v-pills-home-tab"
-            data-toggle="pill"
-            href="#v-pills-home-panel"
-            role="tab"
-            aria-controls="v-pills-home-panel"
-            aria-selected="true"
-            >Home</a
-          >
-          <a
-            class="nav-link"
-            id="v-pills-service-tab"
-            data-toggle="pill"
-            href="#v-pills-service-panel"
-            role="tab"
-            aria-controls="v-pills-service-panel"
-            aria-selected="false"
-            >Service</a
-          >
-          <a
-            class="nav-link"
-            id="v-pills-schedule-tab"
-            data-toggle="pill"
-            href="#v-pills-schedule-panel"
-            role="tab"
-            aria-controls="v-pills-schedule-panel"
-            aria-selected="false"
-            >Schedule a Call</a
-          >
-        </div>
-      </nav>
+      </div>
+      </div>
+    </nav>
       <div class="tab-content" id="v-pills-tabContent">
         <div
           class="tab-pane fade show active"
@@ -225,9 +222,68 @@
         >
           <div class="jumbotron">
             <!-- please add schedule a service content here and below -->
-            <h1>schedule...</h1>
-            <p>Data. Data. Data....</p>
-          </div>
+            <main>
+              <div>
+                <article>
+                  <img class="pull-right" id="thumble" alt="schedule a call" src="images/scheduleacall.png">
+                  <div class="container">
+                    <p>
+                      At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive experiences.
+                      Fill out the form below and we'll get back to you as soon as we can to schedule a call with our sales team!
+                    </p>
+                  </div>
+                </article>
+                <div id="statusContainer"></div>
+              </div>              
+              <div>
+                <form action="/contact" method="post" id="scheduleacall">
+                  <div class="form-group">
+                    <label for="business_name">Business name:</label>
+                    <input type="text" class="form-control" id="business_name" name="business_name">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone_number">Phone number (613-123-1234):</label>
+                    <input type="tel" class="form-control" id="phone_number" name="phone_number">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email (required):</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-required="true" required>
+                  </div>                  
+                  <div class="form-group">
+                    <input type="checkbox" class="form-check-input" id="awareness_lab_days_and_workshops_cb" name="awareness_lab_days_and_workshops">
+                    <label for="awareness_lab_days_and_workshops_cb" aria-label="Check this box if you are interested in awareness lab days and workshops">                  
+                    Awareness lab days and workshops
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <input type="checkbox" class="form-check-input" id="invite_a_speaker_with_disabilities_to_your_event_cb" name="invite_a_speaker_with_disabilities_to_your_event" onchange="toggleTextarea(event)">
+                    <label for="invite_a_speaker_with_disabilities_to_your_event_cb" aria-label="Check this box if you would like to invite a speaker with disabilities to your event">Invite a speaker with disabilities to your event                      
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <input type="checkbox" class="form-check-input" id="usability_testing_cb" name="usability_testing">
+                    <label for="usability_testing_cb" aria-label="Check this box if you would like to request usability testing services">                  
+                      Usability testing
+                    </label>
+                  </div>
+                  <div class="form-group" id="event_description_area">
+                    <label for="event_description">Tell us about your event</label>
+                    <br>
+                    <textarea id="event_description" class="form-control" rows="1" cols="20"></textarea>
+                  </div>
+
+                  <div class="form-group" role="switch" aria-checked="false" tabindex="0">     
+                    <button id="switcher" type="button" class="btn-primary-outline" role="switch" onclick="toggleImage(event)" aria-checked="false"><img id="switchImage" src="./images/switch_no.jpg" width="100" height="50"> </button>                                   
+                    <label for="switcher">Receive emails about updates and services</label>
+                  </div>
+                          
+                  <div class="form-group">
+                    <button type="button" id="schedule-call-button" class="btn btn-primary btn-lg" aria-label="Schedule a call" onclick="validateForm()">Schedule a call</button>
+                  </div>
+                </form>
+              </div>
+            </main> 
+          </div>    
         </div>
       </div>
     </div>
